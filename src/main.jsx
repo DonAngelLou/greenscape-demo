@@ -146,7 +146,7 @@ function App(){
         <div className="crumb"><ActiveIcon size={16}/><strong>{view?labels[view]:'Permissions'}</strong></div>
         <div className="toolbar">
           <label className="toolbar-select"><Layers3 size={16}/><span>Rollout</span><select aria-label="Rollout" value={phase} onChange={e=>selectPhase(e.target.value)}>
-            {Object.keys(phases).map(key=><option value={key} key={key}>{({pilot:'Customer portal pilot','phase/1':'Phase 1 · HRIS & Sales','phase/2':'Phase 2 · Real Estate','phase/3':'Phase 3 · Field & Portal','phase/4':'Phase 4 · Honey & AI',system:'Full system'})[key]}</option>)}
+            {Object.keys(phases).map(key=><option value={key} key={key}>{({pilot:'Customer pilot','phase/1':'Phase 1 · HRIS','phase/2':'Phase 2 · Realty','phase/3':'Phase 3 · Field','phase/4':'Phase 4 · Honey',system:'Full system'})[key]}</option>)}
           </select><ChevronDown size={14}/></label>
           <label className="toolbar-select role-picker"><ShieldCheck size={16}/><span>Preview as</span><select aria-label="Preview as" value={role} onChange={e=>changeRole(e.target.value,view)}>{Object.keys(roles).map(r=><option key={r}>{r}</option>)}</select><ChevronDown size={14}/></label>
           <button className="reset" onClick={()=>{setData(initial);setNotice('Demo reset');setAnswer('');setPrompt('');move('pilot','Executive','overview','coral')}} aria-label="Reset demo" title="Reset demo"><RefreshCw size={16}/><span>Reset</span></button>

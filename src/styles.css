@@ -254,4 +254,5 @@ meter{width:100%;accent-color:#62966a}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;transition:none!important}
 }
-.pilot-shortcuts:not(:empty){margin-top:7px}
+.workspace-links.pilot-links{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1050px){.workspace-links.pilot-links{grid-template-columns:1fr}}

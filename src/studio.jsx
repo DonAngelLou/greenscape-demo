@@ -99,8 +99,7 @@ export function Overview({data, phase, biz, allowed, icons, open, selectPhase, o
     <div className="signal-grid">{signals.map(([label,value,Icon,caption])=><div className="signal" key={label}><span className="signal-icon"><Icon size={18}/></span><div><span>{label}</span><strong>{value}</strong><small>{caption}</small></div></div>)}</div>
     <div className="overview-bottom">
       <Card title={pilot?'Explore the pilot':'Business workspaces'} intro={pilot?'Open a workspace and use the role selector to follow the handoffs.':'Open a workspace in the selected rollout.'}>
-        <div className="workspace-links">{featured.map(key=>{const Icon=icons[key];return <button key={key} onClick={()=>open(key)}><Icon size={18}/><strong>{labels[key]}</strong><ChevronRight size={16}/></button>})}</div>
-        <div className="workspace-links pilot-shortcuts">
+        <div className={"workspace-links"+(pilot?" pilot-links":"")}>{featured.map(key=>{const Icon=icons[key];return <button key={key} onClick={()=>open(key)}><Icon size={18}/><strong>{labels[key]}</strong><ChevronRight size={16}/></button>})}
           {pilot&&<><button onClick={()=>openRole('Field crew','field')}><Truck size={18}/><strong>Field assignment</strong><ChevronRight size={16}/></button>
           <button onClick={()=>openRole('Customer approver','portal')}><Globe2 size={18}/><strong>Customer portal</strong><ChevronRight size={16}/></button></>}
         </div>
