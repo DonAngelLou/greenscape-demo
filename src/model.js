@@ -1,4 +1,4 @@
-﻿export const roles = {
+export const roles = {
   Executive: ['overview','people','inbox','property','projects','dispatch','stock','intelligence','audit'],
   Administrator: ['overview','people','inbox','property','projects','dispatch','stock','intelligence','audit'],
   'HR / Payroll': ['people','audit'],
@@ -45,4 +45,3 @@ export function load() {
   try {const raw=localStorage.getItem('greenscape-demo-v1'); return raw?JSON.parse(raw):initial;}
   catch {return initial;}
 }
-

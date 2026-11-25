@@ -1,4 +1,4 @@
-﻿name: Deploy Greenscape demo
+name: Deploy Greenscape demo
 on:
   push:
     branches: [main]
@@ -31,4 +31,3 @@ jobs:
       - name: Publish
         id: publish
         uses: actions/deploy-pages@v4
-

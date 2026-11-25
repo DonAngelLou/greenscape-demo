@@ -1,4 +1,4 @@
-﻿import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {Activity,ArrowUpRight,BriefcaseBusiness,Building2,CalendarDays,Camera,Check,ChevronDown,ClipboardList,Clock3,CloudOff,Flower2,GalleryHorizontal,Globe2,Home,Inbox,Layers3,Leaf,MapPin,Package,RefreshCw,Route,ShieldCheck,Sparkles,Truck,Users,Wifi} from 'lucide-react';
 import {roles,phases,labels,sites,initial,departments,scopeRole,route,move,load} from './model';
@@ -118,5 +118,3 @@ function App(){
   </main></div>
 }
 createRoot(document.getElementById('root')).render(<App/>);
-
-
