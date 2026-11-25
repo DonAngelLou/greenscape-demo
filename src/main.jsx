@@ -52,7 +52,7 @@ function App(){
     const steps=[['Scheduled','Visit on the calendar'],['Evidence submitted','Crew records proof'],['Published','Supervisor release'],['Approved','Customer sign-off']];
     const progress=job.status==='Issue reported'?4:stepNames.indexOf(job.status);
     return <>
-      <section className="site-banner"><div className="site-copy"><span className="site-overline"><MapPin size={14}/> {current.area}</span><h2>{current.name}</h2><p>{current.service}</p><div className="site-tags"><Tag>{isCoral?'Maintenance contract':'Planting care contract'}</Tag><Tag>{portal?current.owner:'Visit '+(isCoral?'GS-104':'GS-209')}</Tag></div></div><div className="site-image" style={{"--banner-photo": "url(" + assets + "after.webp)"}} role="img" aria-label="Illustrative tropical courtyard after maintenance"/></section>
+      <section className="site-banner"><div className="site-copy"><span className="site-overline"><MapPin size={14}/> {current.area}</span><h2>{current.name}</h2><p>{current.service}</p><div className="site-tags"><Tag>{isCoral?'Maintenance contract':'Planting care contract'}</Tag><Tag>{portal?current.owner:'Visit '+(isCoral?'GS-104':'GS-209')}</Tag></div></div><div className="site-image" style={{"--banner-photo": "url(" + new URL(assets + "after.webp", document.baseURI).href + ")"}} role="img" aria-label="Illustrative tropical courtyard after maintenance"/></section>
       <div className="stats three">
         <Stat icon={CalendarDays} label="Service date" value={dateLabel} detail={current.next}/>
         <Stat icon={ClipboardList} label="Visit status" value={portal&&!published?'Awaiting update':job.status} detail={portal?'Published customer view':'Illustrative work order'}/>
