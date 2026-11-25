@@ -65,7 +65,7 @@ function App(){
           {job.issue&&published&&<div className="note issue"><strong>Issue reported</strong><p>{job.issue}</p></div>}
         </Panel>
         <Panel title={portal?'Service evidence':crew?'Capture proof':'Evidence review'} caption={portal?'Photos and sign-off for this visit':'Before-and-after documentation'}>
-          {showEvidence&&<Photos/>}
+          {showEvidence&&(isCoral?<Photos/>:<div className="note">North entrance evidence reviewed by the assigned supervisor. The service summary is available below.</div>)}
           {!showEvidence&&<div className="empty"><Camera size={25}/><strong>{portal?'Awaiting the published report':'Ready for site evidence'}</strong><span>{portal?'Released photos and reports will appear here.':'Images and notes appear after the crew records the visit.'}</span></div>}
           {view==='dispatch'&&<>
             {job.status==='To schedule'&&<div className="actions"><label>Visit date<input type="date" value={visitDate||job.day} onChange={e=>setVisitDate(e.target.value)}/></label><Btn onClick={()=>jobChange('Scheduled','Visit scheduled for the field crew',{day:visitDate||job.day})}>Schedule visit</Btn></div>}
@@ -82,6 +82,15 @@ function App(){
           {portal&&published&&<div className="note"><strong>Published service summary</strong><p>Garden borders and path serviced. Before-and-after photos recorded. {job.status==='Approved'?'Customer sign-off recorded.':'Status is visible in the visit timeline.'}</p></div>}
         </Panel>
       </div>
+      {portal&&<Panel title="Projects & service history" caption="Published updates for your assigned site">
+        <div className="client-summary"><div><strong>{isCoral?'Courtyard irrigation':'North entrance planting'}</strong><p>{isCoral?'Irrigation and tropical border care':'Hedge establishment and pathway upkeep'}</p></div><Tag tone="good">{current.progress}% published</Tag></div>
+        <Table head={['Milestone or visit','Status','Customer record']} rows={[
+          [isCoral?'Initial site inspection':'Entrance inspection','Completed','Checklist accepted'],
+          [isCoral?'Irrigation preparation':'Planting bed preparation','Published','Milestone update'],
+          [job.day,published?job.status:'Scheduled',published?'Service report and evidence':'Next scheduled visit'],
+        ]}/>
+        {published&&<div className="actions"><a className="button secondary" download={(isCoral?'GS-104':'GS-209')+'-service-summary.txt'} href={'data:text/plain;charset=utf-8,'+encodeURIComponent([current.name,current.service,job.day,job.status,job.notes,'Illustrative Greenscape service report'].join(String.fromCharCode(10)))}>Download service summary</a></div>}
+      </Panel>}
     </>
   }
   function moduleView(){
