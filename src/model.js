@@ -11,7 +11,7 @@ export const roles = {
   Distributor: ['distributor'],
 };
 export const phases = {
-  pilot: {name:'Pilot', detail:'Customer visibility pilot', modules:['dispatch','field','portal','audit']},
+  pilot: {name:'Pilot', detail:'Customer visibility pilot', modules:['overview','dispatch','field','portal','audit']},
   'phase/1': {name:'Phase 1', detail:'Foundation, HRIS & AI Sales', modules:['overview','people','inbox','audit']},
   'phase/2': {name:'Phase 2', detail:'Real Estate', modules:['overview','property','inbox','buyer','audit']},
   'phase/3': {name:'Phase 3', detail:'Landscaping & Maintenance', modules:['overview','projects','dispatch','field','portal','audit']},
@@ -25,7 +25,7 @@ export const sites = {
 };
 export const initial = {
   jobs:{coral:{status:'To schedule', day:'2026-12-07', notes:'Trim tropical borders, clear the stone walkway, and inspect irrigation.'},mangrove:{status:'Published',day:'2026-12-10',notes:'Inspect newly planted hedges and clear the entrance beds.'}},
-  events:[], leave:false, overtime:false, payroll:false, attendance:false, lead:false, handoff:false, trip:false, reserve:false, buyerStep:0, commission:false, crossSell:false, requisition:false, milestone:false, batch:false, allocate:false, order:false
+  events:[], details:{}, leave:false, overtime:false, payroll:false, attendance:false, lead:false, handoff:false, trip:false, reserve:false, buyerStep:0, commission:false, crossSell:false, requisition:false, milestone:false, batch:false, allocate:false, order:false
 };
 export const departments = ['All business units','Real Estate','Landscaping','Maintenance','Andi Honey'];
 export const scopeRole = (role) => ['Customer approver','Customer viewer'].includes(role);
